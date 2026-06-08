@@ -1,0 +1,16 @@
+services:
+  spark:
+    image: apache/spark:latest
+    container_name: tubes-abd-spark
+
+    command: tail -f /dev/null
+
+    ports:
+      - "4040:4040"
+
+    volumes:
+      - ./:/workspace
+      - ./jars:/opt/spark/custom-jars
+
+    stdin_open: true
+    tty: true
