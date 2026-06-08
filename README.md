@@ -159,12 +159,12 @@ Dashboard terdiri atas empat visualisasi utama:
 
 ## Pembagian Peran Tim
 
-| Peran                               | Tanggung Jawab                                                                                            |
-| ----------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| **Data Collection Engineer**        | Akuisisi, validasi, dan pengelolaan data PIHPS serta Google Trends                                        |
-| **ETL Engineer**                    | Implementasi pipeline Bronze, Silver, dan Gold Layer menggunakan Apache Spark                             |
-| **Data Analyst (Ketua)**            | Analisis shock harga, lag analysis, korelasi komoditas, interpretasi hasil, dan penyusunan insight SDGs 1 |
-| **Dashboard & Deployment Engineer** | PostgreSQL, Apache Superset, Docker, deployment, dan visualisasi dashboard                                |
+| Nama                            | NIM           | Peran                           | Tanggung Jawab                                                                                            |
+| ------------------------------- | ------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Rahmah Gustriana Deka | 123450102     | Data Analyst (Ketua)            | Analisis shock harga, lag analysis, korelasi komoditas, interpretasi hasil, dan penyusunan insight SDGs 1 |
+| Gusti Putu Ferazka D.                  | 123450046 | ETL Engineer                    | Implementasi pipeline Bronze, Silver, dan Gold Layer menggunakan Apache Spark                             |
+| Hafsa Fazila Arradhi                  | 123450079 | Data Collection Engineer        | Akuisisi, validasi, dan pengelolaan data PIHPS serta Google Trends                                        |
+| Eka Fidiya Putri                  | 122450045 | Dashboard & Deployment Engineer | PostgreSQL, Apache Superset, Docker, deployment, dan visualisasi dashboard                                |
 
 ---
 
