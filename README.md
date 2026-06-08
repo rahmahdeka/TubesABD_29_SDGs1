@@ -65,11 +65,27 @@ Tugas-Besar-Analisis-Big-Data/
 │   ├── pihps/
 │   └── google_trends/
 │
-├── jobs/
-│   ├── 01_data_collection/
-│   ├── 02_etl_engineering/
-│   ├── 03_data_analytics/
-│   └── 04_dashboard_visualization/
+├──  jobs
+
+│   ├── analytics
+
+│   │   ├── 05_lag_analysis_spark.py
+
+│   │   ├── 06_commodity_correlation_spark.py
+
+│   │   └── 07_shock_summary_spark.py
+
+│   ├── gold
+
+│   │   ├── build_province_daily_series.py
+
+│   │   └── spark_build_gold.py
+
+│   └── silver
+
+│       ├── 01_pihps_to_silver.py
+
+│       └── 02_google_trends_to_silver.py
 │
 ├── output/
 │   ├── silver/
