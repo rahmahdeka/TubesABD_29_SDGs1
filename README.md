@@ -33,22 +33,25 @@ Analisis dilakukan menggunakan Apache Spark dengan pendekatan Medallion Architec
 ## Arsitektur Pipeline
 
 ```text
-PIHPS + Google Trends
-          │
-          ▼
-      Bronze Layer
-          ▼
-      Silver Layer
-          ▼
-       Gold Layer
-          ▼
-    Analytics Layer
-          ▼
-      PostgreSQL
-          ▼
-    Apache Superset
-          ▼
-   Dashboard SDGs 1
+Raw Data (PIHPS + Google Trends)
+        ↓
+Silver Layer
+├── pihps_silver.parquet
+└── google_trends_silver.parquet
+        ↓
+Gold Layer
+├── gold_dataset.parquet
+└── province_daily_series.parquet
+        ↓
+Analytics Layer
+├── province_lag_analysis.parquet
+├── province_lag_optimal.parquet
+├── province_commodity_correlation.parquet
+└── province_shock_summary.parquet
+        ↓
+PostgreSQL
+        ↓
+Apache Superset Dashboard
 ```
 
 ---
