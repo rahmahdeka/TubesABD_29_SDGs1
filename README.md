@@ -17,7 +17,138 @@ Analisis dilakukan menggunakan Apache Spark dengan pendekatan Medallion Architec
 * Menyajikan hasil analisis dalam bentuk dashboard interaktif.
 
 ---
+## Dataset
+Kalau dihitung berdasarkan asumsi dataset harian dari **1 Januari 2021 sampai 31 Mei 2026**:
 
+### Jumlah Hari Observasi
+
+```text
+2021 = 365 hari
+2022 = 365 hari
+2023 = 365 hari
+2024 = 366 hari (tahun kabisat)
+2025 = 365 hari
+Jan–Mei 2026 = 151 hari
+----------------------
+Total = 1.977 hari
+```
+
+---
+
+## Google Trends
+
+Cakupan:
+
+* 10 provinsi Sumatera
+* Frekuensi harian
+* 1 indeks pencarian bantuan sosial
+
+Maka ukuran data mentah:
+
+[
+1.977 \times 10 = 19.770
+]
+
+≈ **19.770 observasi**
+
+---
+
+## PIHPS
+
+Cakupan:
+
+* 10 provinsi Sumatera
+* Frekuensi harian
+* 20 komoditas spesifik
+
+Contoh:
+
+```text
+Beras Premium
+Beras Medium
+Bawang Merah
+Bawang Putih
+Cabai Merah
+Cabai Rawit
+Minyak Goreng Curah
+Minyak Goreng Kemasan
+Gula Pasir
+Telur Ayam Ras
+...
+```
+
+Maka ukuran data mentah:
+
+[
+1.977 \times 10 \times 20
+=========================
+
+395.400
+]
+
+≈ **395.400 observasi**
+
+---
+
+## Setelah Agregasi ke 10 Komoditas Utama
+
+Misalnya:
+
+| Komoditas Utama | Komoditas Spesifik        |
+| --------------- | ------------------------- |
+| Beras           | Beras Kualitas I, II, III |
+| Cabai           | Cabai Merah, Cabai Rawit  |
+| Minyak Goreng   | Curah, Kemasan            |
+| Daging Ayam     | Ras, Kampung              |
+| dll             | ...                       |
+
+Maka ukuran data menjadi:
+
+[
+1.977 \times 10 \times 10
+=========================
+
+197.700
+]
+
+≈ **197.700 observasi**
+
+Angka ini sangat dekat dengan hasil Gold Layer milikmu:
+
+```text
+197.500 baris
+```
+
+Selisih sekitar 200 baris sangat wajar karena ada:
+
+* tanggal yang hilang,
+* data kosong,
+* hasil join yang tidak lengkap,
+* atau proses filtering saat ETL.
+
+---
+
+Untuk README, saya akan menulis:
+
+> Dataset mentah terdiri atas sekitar **19.770 observasi Google Trends** dan **395.400 observasi harga pangan PIHPS** yang mencakup 10 provinsi di Sumatera selama periode Januari 2021–Mei 2026. Data harga pangan mencakup 20 komoditas spesifik yang kemudian dikelompokkan menjadi 10 komoditas utama untuk proses analisis. Setelah integrasi dan transformasi menggunakan Apache Spark, dihasilkan dataset analitik (Gold Layer) berisi sekitar **197 ribu observasi** yang digunakan dalam proses analisis hubungan shock harga pangan dan pencarian bantuan sosial.
+
+Dataset yang digunakan berasal dari dua sumber utama:
+
+### 1. PIHPS (Pusat Informasi Harga Pangan Strategis Nasional)
+
+- Periode: 2021–2026
+- Cakupan wilayah: 10 provinsi di Sumatera
+- Frekuensi: Harian
+- Komoditas: 10 komoditas pangan strategis
+- Format: XLSX
+
+### 2. Google Trends
+
+- Periode: 2021–2026
+- Cakupan wilayah: 10 provinsi di Sumatera
+- Frekuensi: Harian
+- Variabel: Indeks pencarian terkait bantuan sosial
+- Format: CSV
 ## Teknologi yang Digunakan
 
 * Python
