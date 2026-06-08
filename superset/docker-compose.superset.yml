@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  superset:
+    build: .
+    container_name: superset
+
+    environment:
+      SUPERSET_SECRET_KEY: "rahmah-abd-superset-secret-key-2026"
+
+    ports:
+      - "8088:8088"
+
+    volumes:
+      - ../workspace:/workspace
+      - superset_home:/app/superset_home
+
+volumes:
+  superset_home:
